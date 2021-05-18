@@ -29,7 +29,7 @@ module.exports = {
       network_id: 3,
       gas: 4000000,
       gasLimit: 4000000,
-      gasPrice: 120000000000,
+      gasPrice: 2000000000,
     },
 
     kovan: {
@@ -40,7 +40,7 @@ module.exports = {
       network_id: 42,
       // gas: 8000000,
       // gasLimit: 8000000, // <-- Use this high gas value
-      gasPrice: 1000000000,
+      gasPrice: 1,
     },
 
     main: {
@@ -72,6 +72,10 @@ module.exports = {
   },
 
   plugins: [
-    'truffle-plugin-solhint',
+    'truffle-plugin-verify',
   ],
+
+  api_keys: {
+    etherscan: process.env.ETHERSCAN_API_KEY,
+  }
 };

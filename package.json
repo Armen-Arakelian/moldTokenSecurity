@@ -1,5 +1,5 @@
 {
-  "name": "moldTokenSecurity",
+  "name": "Mold Token Security",
   "version": "1.0.0",
   "main": "truffle-config.js",
   "directories": {
@@ -9,12 +9,14 @@
     "private-network": "ganache-cli --time 1970-01-01T00:00:00Z",
     "compile": "truffle compile",
     "test": "truffle test",
+    "deploy": "truffle test ./deploy/deploy.js --network ropsten",
     "lint": "npm run lint-js && npm run lint-sol",
     "lint-js": "eslint *.js test/*.js",
     "lint-sol": "solhint \"contracts/**/*.sol\"",
     "lint-js-fix": "eslint *.js test/*.js --fix",
     "lint-sol-fix": "prettier --write \"contracts/**/*.sol\"",
-    "lint-fix": "npm run lint-js-fix && npm run lint-sol-fix"
+    "lint-fix": "npm run lint-js-fix && npm run lint-sol-fix",
+    "verify": "truffle run verify MoldSecurityFactory@0x014497cb2b033c8084f54841f9cac6c13573542d MoldSecurityToken@0x91014d345b9058669b07Ed3494f1E6e153E50314 --network ropsten"
   },
   "author": "",
   "license": "ISC",
@@ -32,16 +34,16 @@
   "devDependencies": {
     "eslint": "^6.5.1",
     "eslint-config-google": "^0.14.0",
+    "eth-permit": "0.1.9",
     "prettier": "^2.2.1",
     "prettier-plugin-solidity": "*",
     "solhint": "^3.3.4",
     "solhint-plugin-prettier": "^0.0.5",
     "solidity-coverage": "^0.7.1",
-    "eth-permit": "0.1.9",
     "truffle-assertions": "^0.9.2",
     "truffle-flattener": "^1.5.0",
     "truffle-hdwallet-provider": "^1.0.17",
-    "truffle-plugin-verify": "^0.5.7",
+    "truffle-plugin-verify": "^0.5.8",
     "truffle-test-utils": "^0.1.0"
   }
 }
